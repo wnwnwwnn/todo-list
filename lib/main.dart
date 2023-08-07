@@ -14,11 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TO-DO List',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-          useMaterial3: true,
-          textTheme: const TextTheme(
-              bodyMedium:
-                  TextStyle(fontSize: 24, fontWeight: FontWeight.w400))),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        useMaterial3: true,
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
+          labelMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+        ),
+      ),
       home: const MyHomePage(title: 'TO-DO List'),
     );
   }
@@ -150,7 +152,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ? const Icon(Icons.check_box_rounded)
                                 : const Icon(
                                     Icons.check_box_outline_blank_rounded),
-                            Text(tasks[i].work),
+                            Text(
+                              tasks[i].work,
+                              style: Theme.of(context).textTheme.labelMedium,
+                            ),
                           ],
                         ),
                       ),
